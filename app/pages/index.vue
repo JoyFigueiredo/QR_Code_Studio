@@ -1,33 +1,42 @@
-<template>
-  <div class="container">
-    <Header />
-
-    <main>
-      <h1>Joice Figueiredo</h1>
-      <h2>Digite o texto:</h2>
-
-      <QrForm @gerar="gerarQr" />
-
-      <QrPreview :texto="qrTexto" />
-
-      <p v-if="qrTexto">Você digitou: {{ qrTexto }}</p>
-    </main>
-
-    <Footer />
-  </div>
-</template>
-
 <script setup lang="ts">
+import { useQrCode } from '~/composables/useQrCode';
 
-const qrTexto = ref('')
+const { texto, historico, gerar, imprimir, baixar } = useQrCode()
+const tamanhoQr = ref(200)
 
-function gerarQr(valor: string) {
-  qrTexto.value = valor
+function gerarQr(payload: { texto: string; largura: number }) {
+  gerar(payload.texto)
+  tamanhoQr.value = payload.largura
 }
 </script>
+
+<template>
+  <div class="container">
+    <main>
+      <h2>Digite o texto que quer transformar em QR Code:</h2>
+
+      <QrForm @gerar="gerarQr" @mudarTamanho="tamanhoQr = $event" />
+
+
+      <QrPreview :texto="texto" :size="tamanhoQr" />
+
+
+      <QrActions class="actions" v-if="texto" @imprimir="imprimir" @baixar="baixar" />
+      <QrHistory :historico="historico" @selecionar="gerar" :ativo="texto" />
+
+    </main>
+  </div>
+</template>
 
 <style scoped>
 .container {
   padding: 20px;
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
 }
 </style>
