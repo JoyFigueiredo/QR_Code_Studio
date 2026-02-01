@@ -5,9 +5,10 @@ Aplicação web para <strong>geração, visualização e download de QR Codes</s
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/status-em%20desenvolvimento-yellow" alt="Status">
+ <img src="https://img.shields.io/badge/status-concluído-green" alt="Status">
   <img src="https://img.shields.io/badge/frontend-Nuxt%203-green" alt="Nuxt 4">
-  <img src="https://img.shields.io/badge/docker-ready-blue" alt="Docker">
+  <img src="https://img.shields.io/badge/docker-configurado-blue" alt="Docker">
+
 </p>
 
 > **Ambiente:** Docker  
@@ -32,6 +33,7 @@ git clone https://github.com/JoyFigueiredo/QR_Code_Studio
 
 cd qr-code-studio
 ```
+
 Ou baixe o projeto diretamente pelo GitHub e extraia os arquivos.
 
 ### 🔹 2. Buildar a imagem Docker
@@ -47,10 +49,13 @@ docker build -t qr-code-studio .
 ```
  docker compose up
 ```
+
 ---
+
 ## 🌐 Porta da Aplicação
 
 A aplicação sobe, por padrão, na porta:
+
 ```
 http://localhost:3000
 ```
@@ -62,6 +67,7 @@ http://localhost:3000
 Atualmente, a aplicação **não exige variáveis de ambiente obrigatórias** para funcionar.
 
 Valores padrão utilizados:
+
 - **PORT:** `3000`
 - **API de geração de QR Code:** pública (goQR.me), sem necessidade de autenticação
 
@@ -95,12 +101,13 @@ A geração dos QR Codes é feita por meio da API pública do **goQR.me**, utili
 Formato da URL utilizada:
 https://api.qrserver.com/v1/create-qr-code/?size=WIDTHxHEIGHT&data=CONTEUDO
 
-
 Onde:
+
 - `WIDTHxHEIGHT` representa o tamanho definido pelo usuário
 - `CONTEUDO` corresponde ao texto digitado, codificado para URL
 
 A URL gerada é utilizada diretamente como `src` de uma tag `<img>`, permitindo:
+
 - Visualização imediata do QR Code
 - Download da imagem gerada
 - Impressão via navegador
@@ -113,7 +120,7 @@ A API não requer autenticação, o que simplifica a integração e reduz a comp
 
 **Joice Barros de Figueiredo**  
 Graduada em área de Engenharia da Computação
-GitHub: https://github.com/JoyFigueiredo  
+GitHub: https://github.com/JoyFigueiredo
 
 ---
 
@@ -121,4 +128,3 @@ GitHub: https://github.com/JoyFigueiredo
 
 Este projeto possui caráter de processo seletivo da Empresa Supranet.  
 O uso total ou parcial do código é permitido para fins educacionais, desde que citada a autoria.
-
