@@ -22,6 +22,12 @@ Aplicação web para <strong>geração, visualização e download de QR Codes</s
 O **QR Code Studio** é uma aplicação web que permite ao usuário **gerar QR Codes a partir de textos**, visualizar o resultado em tempo real, **ajustar o tamanho do QR Code**, além de **baixar ou imprimir** o código gerado.
 
 ---
+## 🐳 Docker
+
+Primeiro baixe o Docker de a cordo com seu Sistema:
+https://www.docker.com/get-started/
+
+---
 
 ## 🐳 Passos para execução com Docker
 
